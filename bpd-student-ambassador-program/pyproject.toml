@@ -1,0 +1,4 @@
+[render-engine.cli]
+site = "app"
+module = "app"
+collection = "blog"
