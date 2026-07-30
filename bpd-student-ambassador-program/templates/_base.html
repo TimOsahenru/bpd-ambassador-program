@@ -1,228 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Black Python Devs Student Ambassadorial Program</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #1e2b3c;
-            background: #f8faff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: #1a3a5c;
-            color: #ffffff;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            transition: background 0.3s, transform 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background: #0f2a44;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background: transparent;
-            color: #1a3a5c;
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 2px solid #1a3a5c;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: #1a3a5c;
-            color: #fff;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-            transition: box-shadow 0.3s;
-        }
-
-        header.scrolled {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.10);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #1a3a5c;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            color: #e8a838;
-            font-size: 1.8rem;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            color: #2c3e50;
-            transition: color 0.3s;
-            font-size: 1rem;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            background: #e8a838;
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #1a3a5c;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links .btn-primary {
-            padding: 10px 28px;
-            font-size: 0.9rem;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #1a3a5c;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(8px);
-                flex-direction: column;
-                padding: 32px 24px;
-                gap: 20px;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-                transform: translateY(-120%);
-                transition: transform 0.4s ease;
-                border-radius: 0 0 20px 20px;
-            }
-
-            .nav-links.open {
-                transform: translateY(0);
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        } 
-    </style>
-</head>
-<body>
-
-    
-    <header id="header">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
+{% extends "base_templates/_base.html" %}
+{% block head %}
+{{super()}}
+<link rel="stylesheet" href="/static/style.css">
+{% endblock %}
+{% block header %}
+<header>
+    <div class="container">
+    <nav>
+           <a href="https://blackpythondevs.com/" class="logo">
                      Black Python Dev
                 </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#">Join</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Cohort</a></li>
-                    <li><a href="https://blackpythondevs.com/">What is BPD ?</a></li>
-                    <li><a href="#" class="btn-primary" style="color: #ffffff;">Apply Now</a></li>
-                </ul>
-                <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
-
-    </script>
-</body>
-</html>
+        <ul class="nav-links">
+    {% for link in NAVIGATION %}
+     <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+    {% endfor %}
+    <li><a href="#" class="btn-primary" style="color: #ffffff;">Apply Now</a></li>
+    </ul>
+    </nav>
+</div>
+</header>
+{% endblock %}
+{% block footer %}
+<footer class="container">
+    <hr />
+    <p><a href="{{SITE_URL}}">{{SITE_URL}}</a></p>
+    <p>Built with <a href="https://github.com/render-engine/render-engine/">Render Engine</a></p>
+</footer>
+{% endblock %}

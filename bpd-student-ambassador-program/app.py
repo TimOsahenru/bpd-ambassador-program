@@ -19,17 +19,21 @@ app.site_vars.update(
     "SITE_URL":"https://students.blackpythondevs.com",
     "NAVIGATION":[
         {
-            "name": "Home",
+            "name": "Join",
             "url": "/",
         },
         {
-            "name": "Collection Page",
-            "url": "/example-page.html",
+            "name": "About",
+            "url": "/",
         },
         {
-            "name": "Blog",
-            "url": "/blog/blog.html",
+            "name": "Cohort",
+            "url": "/",
         },
+        {
+            "name": "What is BPD ?",
+            "url": "/"
+        }
     ]
 })
 
