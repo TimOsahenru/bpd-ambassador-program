@@ -10,7 +10,13 @@
            <a href="https://blackpythondevs.com/" class="logo">
                      Black Python Dev
                 </a>
-        <ul class="nav-links">
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+        <ul class="nav-links" id="nav-links">
     {% for link in NAVIGATION %}
      <li><a href="{{ link.url }}">{{ link.name }}</a></li>
     {% endfor %}
@@ -19,6 +25,16 @@
     </nav>
 </div>
 </header>
+
+<script> document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        toggleBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active")
+            toggleBtn.classList.toggle("active")
+        });
+    });</script>
 {% endblock %}
 {% block footer %}
 <footer class="container">
